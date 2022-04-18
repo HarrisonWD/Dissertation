@@ -16,14 +16,14 @@ const loadingManager = new THREE.LoadingManager()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const textureLoader = new  THREE.TextureLoader(loadingManager)
 
-const pointerLockBoolean = false
-
-
 /** 
  * Fonts 
  */
 const fontLoader = new FontLoader()
 
+/**
+ * Text
+ */
 fontLoader.load(
     '/font/helvetiker_regular.typeface.json',
     (font) => 
@@ -54,15 +54,12 @@ fontLoader.load(
     }
 )
 
-
-
 const parameters = {
     color: 0xff0000,
     spin: () => {
         gsap.to(mesh.rotation, { duration:1, y: mesh.rotation.y + Math.PI * 1})
     }
 }
-
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -131,12 +128,12 @@ window.addEventListener('resize', () => {
     //Update Sizes
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
+    const aspectRatio = sizes.width / sizes.height
 
     //Update Camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    pointerCamera.aspect = sizes.width / sizes.height
+    orbitCamera.aspect = aspectRatio
+    pointerCamera.aspect = aspectRatio
+    orbitCamera.updateProjectionMatrix()
     pointerCamera.updateProjectionMatrix()
 
     //Update Renderer
@@ -189,16 +186,29 @@ scene.add(pointerCamera)
 const controls = new OrbitControls(orbitCamera, canvas)
 const pointerLockControls = new PointerLockControls(pointerCamera, canvas)
 controls.enableDamping = true
+controls.panSpeed = 100
+controls.enablePan= true
+controls.keyPanSpeed = 14
+controls.screenSpacePanning = true
+controls.listenToKeyEvents(window);
+// controls.keys = {
+//     LEFT: 'KeyA',
+//     UP: 'KeyW',
+//     RIGHT: 'KeyD',
+//     BOTTOM: 'KeyS'
+// }
 
-//Pointer Camer Controls
+
+
+//Pointer Camera Controls
 window.addEventListener('keydown', (event) =>
 {
     if(event.key == 'w')
-    pointerLockControls.moveForward(0.25)
+    pointerLockControls.moveForward(0.25) 
     if(event.key == 'a')
-    pointerLockControls.moveRight(-0.25)
+    pointerLockControls.moveRight(-0.25) 
     if(event.key == 's')
-    pointerLockControls.moveForward(-0.25)
+    pointerLockControls.moveForward(-0.25) 
     if(event.key == 'd')
     pointerLockControls.moveRight(0.25)
 })
@@ -207,8 +217,10 @@ window.addEventListener('keydown', (event) =>
 window.addEventListener('keydown', (event) => 
 {
     if(event.key == 'f'){
-        if(pointerLockBoolean == false)
-        pointerLockControls.lock() | pointerLockBoolean == true 
+        if(pointerLockControls.isLocked == true)
+        pointerLockControls.unlock()
+        else
+        pointerLockControls.lock()
     }
 })
 
@@ -278,10 +290,14 @@ const tick = () =>
     sizes.width = window.innerWidth
 
     //render
-    if(pointerLockBoolean == true)
-    renderer.render(scene, pointerCamera)
-    else
-    renderer.render(scene, orbitCamera)
+    if(pointerLockControls.isLocked == true)
+    {
+        renderer.render(scene, pointerCamera)
+    }
+    else {
+        renderer.render(scene, orbitCamera)
+    }
+    
     
     //Call tick every frame
     window.requestAnimationFrame(tick)
