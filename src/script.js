@@ -8,6 +8,7 @@ import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+import { Raycaster } from 'three'
 
 /**
  * Textures
@@ -20,7 +21,9 @@ const textureLoader = new  THREE.TextureLoader(loadingManager)
  * Raycaster
  */
 const raycaster = new THREE.Raycaster()
-let INTERSECTED;
+let INTERSECTED
+
+
 /** 
  * Fonts 
  */
@@ -249,8 +252,6 @@ window.addEventListener('keydown', (event) =>
         }
         else 
         {
-            pointer.position.x = sizes.width/2
-            pointer.position.y = sizes.height/2
             pointerLockControls.lock()
             controls.enablePan = false
         }
@@ -328,17 +329,21 @@ const tick = () =>
     //render
     if(pointerLockControls.isLocked)
     {
+            const vector = new THREE.Vector3(0,0,-1)
+            pointerCamera.getWorldDirection(vector)
+            const rayOrigin = pointerCamera.position
+            const rayDirection = vector
+            raycaster.set(rayOrigin, rayDirection)
+            for (const object of objectsToTest){
+                object.material.color.set(0xff0000)
+            }
+            const intersects = raycaster.intersectObjects(objectsToTest,false);
+                if(intersects.length > 0) {
+                    INTERSECTED = intersects[0].object;
+                    INTERSECTED.material.color.set(0x00ff00)
+                }
+        const helper = new THREE.CameraHelper(pointerCamera);
         renderer.render(scene, pointerCamera)
-        raycaster.setFromCamera(pointer, pointerCamera)
-        for (const object of objectsToTest){
-            object.material.color.set(0xff0000)
-        }
-        const intersects = raycaster.intersectObjects(objectsToTest,false);
-        if(intersects.length > 0) {
-            INTERSECTED = intersects[0].object;
-            INTERSECTED.material.color.set(0x00ff00)
-        }
-
     }
     else {
         raycaster.setFromCamera(pointer, orbitCamera)
