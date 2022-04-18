@@ -16,6 +16,11 @@ const loadingManager = new THREE.LoadingManager()
 const cubeTextureLoader = new THREE.CubeTextureLoader()
 const textureLoader = new  THREE.TextureLoader(loadingManager)
 
+/**
+ * Raycaster
+ */
+const raycaster = new THREE.Raycaster()
+let INTERSECTED;
 /** 
  * Fonts 
  */
@@ -87,19 +92,41 @@ gltfLoader.load(
     }
 )
 
+/**
+ * Objects
+ */
+const boxGeometry = new THREE.BoxGeometry(2,2,2)
+
+const box1 = new THREE.Mesh( boxGeometry,
+    new THREE.MeshStandardMaterial( { color: 0xff0000} ) );
+box1.position.set(0,0,8)
+scene.add(box1)
+
+const box2 = new THREE.Mesh( 
+    boxGeometry, 
+    new THREE.MeshStandardMaterial( { color: 0xff0000} ) );
+box2.position.set(-4,0,8)
+scene.add(box2)
+
+const box3 = new THREE.Mesh( 
+    boxGeometry,
+    new THREE.MeshStandardMaterial( { color: 0xff0000} ));
+box3.position.set(4,0,8)
+scene.add(box3)
+
+const objectsToTest = [box1,box2,box3]
+
 //Axes Helper
 const axesHelper = new THREE.AxesHelper()
 //scene.add(axesHelper)
 
 //Cursor Tracker
-const cursor = {
-    x: 0,
-    y: 0
-}
+const pointer = new THREE.Vector2()
 
-window.addEventListener('mousemove', (event) => {
-    cursor.x = event.clientX / sizes.width -0.5
-    cursor.y = event.clientY / sizes.height -0.5
+window.addEventListener('mousemove', (_event) =>
+{
+    pointer.x = _event.clientX / sizes.width * 2 - 1
+    pointer.y = - (_event.clientY / sizes.height) * 2 + 1
 })
 
 /**
@@ -179,7 +206,7 @@ orbitCamera.position.set(0,15,16)
 scene.add(orbitCamera)
 
 const pointerCamera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-pointerCamera.position.set(0,15,16)
+pointerCamera.position.set(0,4,16)
 scene.add(pointerCamera)
 
 //Controls
@@ -187,18 +214,16 @@ const controls = new OrbitControls(orbitCamera, canvas)
 const pointerLockControls = new PointerLockControls(pointerCamera, canvas)
 controls.enableDamping = true
 controls.panSpeed = 100
-controls.enablePan= true
+controls.enablePan = true
 controls.keyPanSpeed = 14
 controls.screenSpacePanning = true
 controls.listenToKeyEvents(window);
-// controls.keys = {
-//     LEFT: 'KeyA',
-//     UP: 'KeyW',
-//     RIGHT: 'KeyD',
-//     BOTTOM: 'KeyS'
-// }
-
-
+controls.keys = {
+    LEFT: 'KeyA',
+    UP: 'KeyW',
+    RIGHT: 'KeyD',
+    BOTTOM: 'KeyS'
+}
 
 //Pointer Camera Controls
 window.addEventListener('keydown', (event) =>
@@ -218,9 +243,18 @@ window.addEventListener('keydown', (event) =>
 {
     if(event.key == 'f'){
         if(pointerLockControls.isLocked == true)
-        pointerLockControls.unlock()
-        else
-        pointerLockControls.lock()
+        {
+            pointerLockControls.unlock()
+            controls.enablePan = true
+        }
+        else 
+        {
+            pointer.position.x = sizes.width/2
+            pointer.position.y = sizes.height/2
+            pointerLockControls.lock()
+            controls.enablePan = false
+        }
+        
     }
 })
 
@@ -235,7 +269,7 @@ window.addEventListener('keydown', (event) =>
  gui
      .addColor(parameters, 'color')
      .onChange(() => {
-         material.color.set(parameters.color)
+         boxMaterial.color.set(parameters.color)
      })
  const materialFolder = gui.addFolder('material')
  
@@ -289,15 +323,36 @@ const tick = () =>
     sizes.height = window.innerHeight
     sizes.width = window.innerWidth
 
+    //Update picking ray
+    
     //render
-    if(pointerLockControls.isLocked == true)
+    if(pointerLockControls.isLocked)
     {
         renderer.render(scene, pointerCamera)
+        raycaster.setFromCamera(pointer, pointerCamera)
+        for (const object of objectsToTest){
+            object.material.color.set(0xff0000)
+        }
+        const intersects = raycaster.intersectObjects(objectsToTest,false);
+        if(intersects.length > 0) {
+            INTERSECTED = intersects[0].object;
+            INTERSECTED.material.color.set(0x00ff00)
+        }
+
     }
     else {
-        renderer.render(scene, orbitCamera)
-    }
-    
+        raycaster.setFromCamera(pointer, orbitCamera)
+        for (const object of objectsToTest){
+            object.material.color.set(0xff0000)
+        }
+        const intersects = raycaster.intersectObjects(objectsToTest,false);
+        if(intersects.length > 0) {
+                INTERSECTED = intersects[0].object;
+                INTERSECTED.material.color.set(0x00ff00)
+            }
+            renderer.render(scene, orbitCamera)
+        }        
+        
     
     //Call tick every frame
     window.requestAnimationFrame(tick)
