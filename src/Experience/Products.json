@@ -1,0 +1,19 @@
+{
+        "Milk" : 
+        {
+            "name": "Milk",
+            "price" : 0.99
+        },
+        "Ceareal" : 
+        {   
+            "name": "Cereal",
+            "price" : 2.99
+        },
+        "JaffaCakes" :
+        {
+            "name": "Jaffacakes",
+            "price" : 1.99
+        }
+        
+}
+    
