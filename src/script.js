@@ -74,6 +74,7 @@ experience.pointer = new THREE.Vector2()
 
 window.addEventListener('mousemove', (_event) =>
 {
+    experience.music.play()
     experience.pointer.x = _event.clientX / experience.sizes.width * 2 - 1
     experience.pointer.y = - (_event.clientY / experience.sizes.height) * 2 + 1
 })
@@ -82,16 +83,12 @@ window.addEventListener('mousemove', (_event) =>
 //  * Lights
 // */
 
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-// scene.add(ambientLight)
+// 
 
 // const pointLight = new THREE.PointLight(0xffffff, 0.9)
 // pointLight.position.z = 0.8
 // pointLight.lookAt(new THREE.Vector3)
 // scene.add(pointLight)
-
-// const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
-// scene.add(directionalLight)
 
 
 

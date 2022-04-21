@@ -25,7 +25,6 @@ export default class ShopModel
     setModel()
     {
         this.model = this.resource.scene
-        this.model.rotateY(Math.PI * 1.5)
         this.scene.add(this.model)
 
         this.model.traverse((child) => {

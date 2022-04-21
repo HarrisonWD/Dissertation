@@ -15,6 +15,7 @@ export default class Camera {
         this.setOrbitControls()
         this.setPointerLockControls()
     }
+    
 
     setInstance()
     {
@@ -37,6 +38,8 @@ export default class Camera {
         this.orbitControls.panSpeed = 100
         this.orbitControls.keyPanSpeed = 14
         this.orbitControls.screenSpacePanning = true
+        this.orbitControls.maxPolarAngle = Math.PI / 2.4
+        this.orbitControls.minPolarAngle = Math.PI / 5
         this.orbitControls.listenToKeyEvents(window)
         this.orbitControls.keys = {
             LEFT: 'KeyA',
@@ -60,6 +63,9 @@ export default class Camera {
     {
         this.orbitCamera.aspect = this.sizes.width / this.sizes.height
         this.orbitCamera.updateProjectionMatrix()
+
+        this.pointerCamera.aspect = this.sizes.width / this.sizes.height
+        this.pointerCamera.updateProjectionMatrix()
     }
 
     update()

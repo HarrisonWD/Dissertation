@@ -1,10 +1,9 @@
 export default[
     {
         name: 'shopModel',
-        type:'gltfModel',
+        type:'glbModel',
         path:[
-            '/models/storeexample.glb'
+            '/models/store.gltf'
         ]
-
     }
 ]
