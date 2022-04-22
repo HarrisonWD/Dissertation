@@ -27,12 +27,13 @@ export default class Experience
         //Options
         this.canvas = canvas
 
-        //Setup
+        //Crucial Setup
         this.objectsToInteract = []
         this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()
         this.scene = new THREE.Scene()
+        this.loadingOverlay()
         this.resources = new Resources(sources)
         this.camera = new Camera()
         this.renderer = new Renderer()
@@ -65,5 +66,29 @@ export default class Experience
         this.renderer.update()
     }
 
-    
+    loadingOverlay(){
+        const overlayGeometry = new THREE.PlaneBufferGeometry(2,2,1,1)
+        const overlayMaterial = new THREE.ShaderMaterial({
+            transparent: true,
+            uniforms:{
+                uAlpha: { value: 1}
+            },
+            vertexShader: `
+            void main()
+            {
+                gl_Position = vec4(position, 1.0);
+            }
+        `,
+        fragmentShader: `
+            uniform float uAlpha;
+            void main()
+            {
+                gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
+            }
+        `
+   
+        })
+        const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
+        this.scene.add(overlay)
+    }
 }
