@@ -1,7 +1,7 @@
 {
-        "Milk" : 
+        "MilkCarton" : 
         {
-            "name": "Milk",
+            "name": "Milk Carton",
             "price" : 0.99
         },
         "Ceareal" : 
@@ -9,11 +9,19 @@
             "name": "Cereal",
             "price" : 2.99
         },
+        "ChickenBreasts" :
+        {
+            "name": "Chicken Breast",
+            "price" : 2.99
+        },
         "JaffaCakes" :
         {
             "name": "Jaffacakes",
             "price" : 1.99
-        }
-        
+        },
+        "ShopModel": {
+            "name": "Shop Model",
+            "price": "Priceless"
+        }  
 }
     

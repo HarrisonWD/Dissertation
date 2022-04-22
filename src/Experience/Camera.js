@@ -24,7 +24,7 @@ export default class Camera {
         this.scene.add(this.orbitCamera)
 
         this.pointerCamera = new THREE.PerspectiveCamera(75, this.sizes.width / this.sizes.height, 0.1, 100)
-        this.pointerCamera.position.set(0,4,16)
+        this.pointerCamera.position.set(0,1.5,16)
         this.scene.add(this.pointerCamera)
         
         this.pointerToggle = false

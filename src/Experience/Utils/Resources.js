@@ -15,7 +15,9 @@ export default class Resources extends EventEmitter
     
         // Setup 
         this.items = {}
+        this.products = {}
         this.toLoad = this.sources.length
+
         this.loaded = 0
         
         this.setLoaders()
@@ -34,7 +36,7 @@ export default class Resources extends EventEmitter
     startLoading()
     {
         for(const source of this.sources){
-            if(source.type === 'gltfModel'){
+            if(source.type === 'gltf'){
                 this.loaders.gltfDracoLoader.load(
                     source.path,
                     (file) => {
@@ -42,7 +44,7 @@ export default class Resources extends EventEmitter
                     }
                 )
             }
-            else if(source.type === 'glbModel'){
+            else if(source.type === 'glb'){
                 this.loaders.gltfDracoLoader.load(
                     source.path,
                     (file) => {
@@ -56,7 +58,6 @@ export default class Resources extends EventEmitter
     sourceLoaded(source, file)
     {
         this.items[source.name] = file
-
         this.loaded++
 
         if(this.loaded === this.toLoad){

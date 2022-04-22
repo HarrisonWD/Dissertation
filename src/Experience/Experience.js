@@ -16,11 +16,10 @@ let instance = null
 export default class Experience
 {
     constructor(canvas){
-
         if(instance){
             return instance
         }
-
+        this.objectsToInteract = []
         instance = this
         
         //global access
@@ -42,7 +41,7 @@ export default class Experience
         this.raycaster = new THREE.Raycaster()
         this.products = products
         this.music = new Music()
-        
+
         //Sizes resize event
         this.sizes.on('resize', () => {
             this.resize()

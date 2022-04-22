@@ -2,10 +2,7 @@ import * as THREE from 'three'
 import Experience from './Experience.js'
 import productsJSON from './Products.json'
 
-let INTERSECTED = null
 let products = productsJSON
-let product = null
-
 export default class Renderer
 {
     constructor()
@@ -15,6 +12,11 @@ export default class Renderer
         this.sizes = this.experience.sizes
         this.scene = this.experience.scene
         this.camera = this.experience.camera
+        this.productFound = null
+        this.productFromJSON = null
+        this.product = null
+        this.count = 0
+        this.intersected = null
                 
         this.setInstance()
     }
@@ -40,35 +42,68 @@ export default class Renderer
     
     update()
     {
-        //Pointer Lock Controls Interaction and Raycast
+        // Count interactable objects
+        this.productsCount = this.experience.objectsToInteract.length
+            //Pointer Lock Controls Interaction and Raycast
         if(this.experience.camera.pointerLockControls.isLocked){
             const vector = new THREE.Vector3(0,0,-1)
             this.camera.pointerCamera.getWorldDirection(vector)
             const rayOrigin = this.camera.pointerCamera.position
             const rayDirection = vector
             this.experience.raycaster.set(rayOrigin, rayDirection)
-            for (const object of this.experience.objectsToInteract){
-                object.material.color.set(0xff0000)
-                }
-            const intersects = this.experience.raycaster.intersectObjects( this.experience.objectsToInteract, false);
+            const intersects = this.experience.raycaster.intersectObjects(this.experience.objectsToInteract, true);
             if(intersects.length) {
-                INTERSECTED = intersects[0].object;
-                INTERSECTED.material.color.set(0x00ff00)
+                this.intersected = intersects[0].object.uuid
+                for(let product of this.experience.objectsToInteract){
+                    if(product.children[0].type == 'Group'){
+                        const childrenOfObject = product.children[0].children
+                        for(const mesh of childrenOfObject)
+                        {
+                            if(mesh.uuid === this.intersected)
+                            {
+                                this.productFound = this.experience.objectsToInteract[this.count].name
+                            }
+                        }
+                        product.children[0].children[0]
+                    }
+                    else if(product.children[0].uuid === this.intersected){
+                        this.productFound = this.experience.objectsToInteract[this.count].name
+                    }
+                    this.count++
+                }
+                const name = this.productFound
+                this.product = products[name]
+                this.count = 0
+                console.log(this.product)         
             }
             this.instance.render(this.scene, this.camera.pointerCamera)
         } else {
             //Orbit Controls Interaction and Raycast
             this.experience.raycaster.setFromCamera(this.experience.pointer, this.camera.orbitCamera)
-            for (const object of this.experience.objectsToInteract){
-            object.material.color.set(0xff0000)
-            }
-            const intersects = this.experience.raycaster.intersectObjects(this.experience.objectsToInteract,false);
+            const intersects = this.experience.raycaster.intersectObjects(this.experience.objectsToInteract, true);
             if(intersects.length) {
-                INTERSECTED = intersects[0].object;
-                INTERSECTED.material.color.set(0x00ff00)
-                const found = INTERSECTED.name
-                const product = products[found]
-                console.log(product)           
+                this.intersected = intersects[0].object.uuid
+                for(let product of this.experience.objectsToInteract){
+                    if(product.children[0].type == 'Group'){
+                        const childrenOfObject = product.children[0].children
+                        for(const mesh of childrenOfObject)
+                        {
+                            if(mesh.uuid === this.intersected)
+                            {
+                                this.productFound = this.experience.objectsToInteract[this.count].name
+                            }
+                        }
+                        product.children[0].children[0]
+                    }
+                    else if(product.children[0].uuid === this.intersected){
+                        this.productFound = this.experience.objectsToInteract[this.count].name
+                    }
+                    this.count++
+                }
+                const name = this.productFound
+                this.product = products[name]
+                this.count = 0  
+                console.log(this.product)    
             }
             this.instance.render(this.scene, this.camera.orbitCamera)
         }        
