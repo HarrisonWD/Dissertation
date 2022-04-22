@@ -11,12 +11,12 @@ export default class ShopModel
         this.debug = this.experience.debug
 
         // Setup
-        this.resource = this.resources.items.shopModel
+        this.resource = this.resources.items.ShopModel
 
         // Debug 
         if(this.debug.active)
         {
-            this.debugFolder = this.debug.ui.addFolder('Shop Model')
+            //this.debug.ui.addFolder('Shop Model')
         }
 
         this.setModel()

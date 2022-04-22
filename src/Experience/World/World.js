@@ -15,7 +15,7 @@ export default class World{
         this.resources.on('ready', () => {
             //Setup 
             this.shopModel = new ShopModel()
-            this.milk = new Products()
+            this.products = new Products()
             this.environment = new Environment()
         })
     }

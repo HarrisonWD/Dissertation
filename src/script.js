@@ -43,32 +43,6 @@ const experience = new Experience(document.querySelector('canvas.webgl'))
 // )
 
 
-
-// /**
-//  * Models
-//  */
-// const dracoLoader = new DRACOLoader()
-// dracoLoader.setDecoderPath('/draco/')
-
-// const gltfLoader = new GLTFLoader()
-// gltfLoader.setDRACOLoader(dracoLoader)
-
-// let mixer = null
-
-// gltfLoader.load(
-//     '/models/storeexample.glb',
-//     (gltf) => 
-//     {
-//         gltf.scene.rotateY(Math.PI * 1.5) 
-//         scene.add(gltf.scene)
-//     }
-// )
-
-// /**
-//  * Objects
-//  */
-
-
 // Cursor Tracker
 experience.pointer = new THREE.Vector2()
 
@@ -79,21 +53,10 @@ window.addEventListener('mousemove', (_event) =>
     experience.pointer.y = - (_event.clientY / experience.sizes.height) * 2 + 1
 })
 
-// /**
-//  * Lights
-// */
-
-// 
-
-// const pointLight = new THREE.PointLight(0xffffff, 0.9)
-// pointLight.position.z = 0.8
-// pointLight.lookAt(new THREE.Vector3)
-// scene.add(pointLight)
-
+// Single Click Whilst Hovering over item
 window.addEventListener('click', () => {
     
 })
-
 
 
 //Double click full screen

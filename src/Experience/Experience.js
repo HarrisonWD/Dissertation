@@ -19,7 +19,6 @@ export default class Experience
         if(instance){
             return instance
         }
-        this.objectsToInteract = []
         instance = this
         
         //global access
@@ -29,6 +28,7 @@ export default class Experience
         this.canvas = canvas
 
         //Setup
+        this.objectsToInteract = []
         this.debug = new Debug()
         this.sizes = new Sizes()
         this.time = new Time()

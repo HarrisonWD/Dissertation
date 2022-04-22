@@ -4,24 +4,20 @@
             "name": "Milk Carton",
             "price" : 0.99
         },
-        "Ceareal" : 
-        {   
-            "name": "Cereal",
-            "price" : 2.99
-        },
+        "BoerworsSausage": {
+            "name": "Boerwors Sausage",
+            "price": 2.49
+        },  
         "ChickenBreasts" :
         {
             "name": "Chicken Breast",
             "price" : 2.99
         },
-        "JaffaCakes" :
+        "CheeriosCereal" :
         {
-            "name": "Jaffacakes",
-            "price" : 1.99
-        },
-        "ShopModel": {
-            "name": "Shop Model",
-            "price": "Priceless"
-        }  
-}
+            "name": "Cheerios Original",
+            "price" : 1.49
+        }
+    }
+
     
