@@ -90,6 +90,9 @@ window.addEventListener('mousemove', (_event) =>
 // pointLight.lookAt(new THREE.Vector3)
 // scene.add(pointLight)
 
+window.addEventListener('click', () => {
+    
+})
 
 
 
