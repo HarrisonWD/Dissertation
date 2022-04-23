@@ -31,13 +31,16 @@ export default class Resources extends EventEmitter
     {
         const loadingBarElement = document.querySelector('.loading-bar')
         const overlayMaterial = this.experience.scene.children[0].material
+        const loadingText = document.querySelector('.loading-text')
         this.loadingManager = new THREE.LoadingManager(
             // Loaded
             () => {
                 gsap.delayedCall(0.7, () => {
                     gsap.to(overlayMaterial.uniforms.uAlpha,{ duration: 3, value: 0})
                     loadingBarElement.classList.add('ended')
+                    loadingText.classList.add('ended')
                     loadingBarElement.style.transform = ''
+                    loadingText.style.transform = ''
                 })
             },
             // Progress
@@ -45,6 +48,7 @@ export default class Resources extends EventEmitter
             {
                 const progressRatio = itemsLoaded / itemsTotal
                 loadingBarElement.style.transform = `scaleX(${progressRatio})`
+                loadingText.style.transform = `scaleX(1)`
             }
         )
         this.loaders = {}
