@@ -10,6 +10,7 @@ import Debug from './Utils/Debug.js'
 import sources from './sources.js'
 import products from './Products.json'
 import Music from './Audio.js'
+import Controls from './Utils/Controls.js'
 
 let instance = null
 
@@ -41,6 +42,7 @@ export default class Experience
         this.environment = new Environment()
         this.raycaster = new THREE.Raycaster()
         this.products = products
+        this.controls = new Controls
         this.music = new Music()
 
         //Sizes resize event

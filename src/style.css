@@ -95,7 +95,7 @@ canvas{
     border-radius: 5px;
     border-color: beige;
     background-color: grey;
-    z-index: 10;
+    z-index: 12;
     cursor: pointer;
 }
 
@@ -136,11 +136,47 @@ canvas{
     font-weight: bold;
 }
 
+.cart-title-box{
+    list-style-type: none;
+}
+
+.cart-title{
+    padding-top: 10px;
+    padding-left: 10px;
+    margin:0;
+    height: 50px;
+}
+
 .cart-content{
     position: absolute;
+    border-radius: 5px;
     z-index: 11;
     width: 400px;
     top: 50px;
     right: 50px;
     background-color: aliceblue;
+    min-height: 50px;
+}
+
+.cart-item-q{
+    padding-right: 5px;
+}
+
+.quantity-text{
+    padding: 0.375rem 0.375rem;
+}
+
+.quantity-form{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 125px;
+    margin: auto;
+    padding: 0;
+}
+.quantity-buttons > .btn{
+    margin: auto;
+}
+
+.quantity-row > .col-4 {
+    padding:0;
 }

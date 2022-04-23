@@ -13,7 +13,27 @@
     </div>
     <div class="cart-content">
         <ul class="list-group"> 
-            <li class="list-group-item">An item</li>
+            <li class="cart-title-box">
+                <h4 class="cart-title">Shopping Cart</h4>
+            </li>
+            <li class="list-group-item">
+                <div class="row quantity-row">
+                    <div class="col-4 m-auto">
+                        <h6 class="m-auto">JaffaCakes</h6>
+                    </div>
+                    <div class="col-4 m-auto d-flex">
+                        <div class="input-group d-flex quantity-form d-flex">
+                            <span class="input-group-text quantity-text d-flex" id="basic-addon3">Quantity</span>
+                            <input type="text" class="form-control d-flex" id="quantity" aria-describedby="basic-addon3">
+                        </div>
+                    </div>
+                    <div class="col-4 m-auto d-flex quantity-buttons">
+                        <button class="btn btn-primary" type="submit">+</button>
+                        <button class="btn btn-primary" type="submit">-</button>
+                        <button class="btn btn-outline-danger" type="submit">X</button>
+                    </div>
+                </div>
+            </li>
         </ul>
     </div>
     <canvas class="webgl"></canvas>
