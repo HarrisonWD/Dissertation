@@ -1,12 +1,14 @@
 import * as THREE from 'three'
 import Experience from './Experience.js'
 import productsJSON from './Products.json'
+import EventEmitter from './Utils/EventEmitter.js'
 
 let products = productsJSON
-export default class Renderer
+export default class Renderer extends EventEmitter
 {
     constructor()
     {
+        super()
         this.experience = new Experience()
         this.canvas = this.experience.canvas
         this.sizes = this.experience.sizes
@@ -61,6 +63,8 @@ export default class Renderer
                         {
                             if(mesh.uuid === this.intersected)
                             {
+                                
+                                this.experience.controls
                                 this.productFound = this.experience.objectsToInteract[this.count].name
                             }
                         }
