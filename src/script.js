@@ -4,6 +4,9 @@ import Experience from './Experience/Experience.js'
 
 const experience = new Experience(document.querySelector('canvas.webgl'))
 
+const reticle = document.querySelector('.reticle')
+reticle.classList.add('hidden')
+
 // /** 
 //  * Fonts 
 //  */
@@ -91,11 +94,13 @@ window.addEventListener('keydown', (event) =>
     if(event.key == 'f'){
         if(experience.camera.pointerLockControls.isLocked == true)
         {
+            reticle.classList.add('hidden')
             experience.camera.pointerLockControls.unlock()
             experience.camera.orbitControls.enablePan = true
         }
         else 
         {
+            reticle.classList.remove('hidden')
             experience.camera.pointerLockControls.lock()
             experience.camera.orbitControls.enablePan = false
         }
