@@ -10,7 +10,7 @@ export default[
         name: 'MilkCarton',
         type: 'gltf',
         path:[
-            '/models/milk.gltf'
+            '/models/milkCarton.gltf'
         ]
     },
     {

@@ -20,8 +20,9 @@ export default class Products
         this.setModels()
         this.setProductParameters()
 
-        // Debug 
-        if(this.experience.debug)
+        
+        //Debug 
+        if(this.experience.debug.active)
         {
             this.debugSetup()
         }
