@@ -160,8 +160,18 @@ canvas{
     z-index: 11;
     top: 20px;
     right: 20px;
-    background-color: aliceblue;
     min-height: 50px;
+    overflow: hidden;
+}
+
+#cart-list{
+    position: relative;
+    right: -520px;
+    background-color: aliceblue;
+}
+
+#cart-list.active{
+    right:0;
 }
 
 #price-col {
@@ -187,6 +197,7 @@ canvas{
     margin: auto;
     padding: 0;
 }
+
 .quantity-buttons > .btn{
     margin: auto;
     border: 1px solid;

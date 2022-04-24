@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="cart">
-        <ion-icon name="basket" class="cart-icon"></ion-icon>
+        <ion-icon name="basket" onclick="toggleCart()" class="cart-icon"></ion-icon>
         <p class="cart-count"><span class="cart-number">3</span></p>
     </div>
     <div class="cart-content">
@@ -46,6 +46,12 @@
     <script>
         let cartList = null
         let quantityValue = 1
+
+        function toggleCart(){
+            cartList = document.getElementById("cart-list")
+            cartList.classList.toggle('active')
+            cartList = null
+        }
 
         function removeItem(element){
             cartList = document.getElementById("cart-list")
