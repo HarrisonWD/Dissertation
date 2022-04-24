@@ -32,9 +32,13 @@ export default class Products
     sortItems(){
         for(const product of this.itemsArray)
         {
-            if(product != 'ShopModel'){
-                this.productsName.push(product)
-                this.products.push(this.experience.resources.items[product])
+            if(product != 'ShopModel')
+            {
+                if(product != 'Shelves')
+                {
+                    this.productsName.push(product)                
+                    this.products.push(this.experience.resources.items[product])
+                }
             }
         }
     }
