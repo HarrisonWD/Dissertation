@@ -96,7 +96,6 @@ window.addEventListener('keydown', (event) =>
         {
             reticle.classList.add('hidden')
             experience.camera.pointerLockControls.unlock()
-            experience.camera.orbitControls.enablePan = true
         }
         else 
         {

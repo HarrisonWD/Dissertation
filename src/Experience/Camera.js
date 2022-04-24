@@ -35,7 +35,6 @@ export default class Camera {
         this.orbitControls = new OrbitControls(this.orbitCamera, this.canvas)
         this.orbitControls.enableDamping = true
         this.orbitControls.enablePan = true
-        this.orbitControls.panSpeed = 100
         this.orbitControls.keyPanSpeed = 14
         this.orbitControls.screenSpacePanning = true
         this.orbitControls.maxPolarAngle = Math.PI / 2.4

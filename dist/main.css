@@ -21,6 +21,7 @@ canvas{
 }
 
 .loading-bar {
+    z-index: 10;
     position: absolute;
     top: 50%;
     width: 100%;
@@ -36,6 +37,7 @@ canvas{
 }
 
 .loading-text{
+    z-index: 10;
     position: absolute;
     top: 47%;
     left: 50%;
@@ -47,6 +49,7 @@ canvas{
 }
 
 .center{
+    z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,6 +57,7 @@ canvas{
 }
 
 .reticle{
+    z-index: 15;
     display: flex;
     border: 3px solid;
     position: absolute;
@@ -72,6 +76,7 @@ canvas{
 }
 
 .inner-reticle{
+    z-index: 15;
     aspect-ratio: 1/1;
     width: 4px;
     height: 4px;
@@ -179,6 +184,10 @@ canvas{
 
 .quantity-row > .col-4 {
     padding:0;
+}
+
+.webgl.interactive{
+    cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map*/

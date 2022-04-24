@@ -5,6 +5,13 @@ const path = require('path')
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
+    resolve: {
+        fallback: { 
+            crypto: false,
+            stream: false,
+            path: false,
+        },
+    },
     output:
     {
         hashFunction: 'xxhash64',
