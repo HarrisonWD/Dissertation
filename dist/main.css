@@ -92,8 +92,8 @@ canvas{
 .cart{
     position: absolute;
     display: flex;
-    top: 50px;
-    right: 50px;
+    top: 20px;
+    right: 20px;
     width: 50px;
     height: 50px;
     border: 2px solid;
@@ -127,6 +127,7 @@ canvas{
     display: flex;
     text-align: center;
     justify-content: center;
+    align-items: center;
     top: 4px;
     left: -1px;
     width: 1.5rem;
@@ -153,14 +154,22 @@ canvas{
 }
 
 .cart-content{
+    width: 520px;
     position: absolute;
     border-radius: 5px;
     z-index: 11;
-    width: 400px;
-    top: 50px;
-    right: 50px;
+    top: 20px;
+    right: 20px;
     background-color: aliceblue;
     min-height: 50px;
+}
+
+#price-col {
+    margin: auto 0;
+}
+
+#price-symbol{
+    margin: auto 0;
 }
 
 .cart-item-q{
@@ -180,6 +189,8 @@ canvas{
 }
 .quantity-buttons > .btn{
     margin: auto;
+    border: 1px solid;
+    border-color: black;
 }
 
 .quantity-row > .col-4 {

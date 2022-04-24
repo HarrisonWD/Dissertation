@@ -1,11 +1,12 @@
 import * as THREE from 'three'
 import './style.css'
 import Experience from './Experience/Experience.js'
-
 const experience = new Experience(document.querySelector('canvas.webgl'))
 
 const reticle = document.querySelector('.reticle')
 reticle.classList.add('hidden')
+
+
 
 // /** 
 //  * Fonts 
@@ -141,4 +142,3 @@ window.addEventListener('keydown', (event) =>
 //  directionalLightFolder.add(directionalLight.position, 'y').min(-0.5).max(3).step(0.01)
 //  directionalLightFolder.add(directionalLight.position, 'z').min(-0.5).max(3).step(0.01)
 //  directionalLightFolder.add(directionalLight, 'intensity').min(-0.5).max(2).step(0.01)
-

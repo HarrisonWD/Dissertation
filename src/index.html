@@ -12,26 +12,24 @@
         <p class="cart-count"><span class="cart-number">3</span></p>
     </div>
     <div class="cart-content">
-        <ul class="list-group cart-list"> 
+        <ul class="list-group" id="cart-list"> 
             <li class="cart-title-box">
                 <h4 class="cart-title">Shopping Cart</h4>
             </li>
             <li class="list-group-item">
                 <div class="row quantity-row">
-                    <div class="col-4 m-auto">
-                        <h6 class="m-auto">JaffaCakes</h6>
+                    <div class="col-5 m-auto">
+                        <h6 class="m-auto" id="item">Item</h6>
                     </div>
-                    <div class="col-4 m-auto d-flex">
+                    <div class="col-2 m-auto d-flex">
+                        <h6 id="price-col">Price</h6>
+                    </div>
+                    <div class="col-2 m-auto d-flex">
                         <div class="input-group d-flex quantity-form d-flex">
-                            <span class="input-group-text quantity-text d-flex" id="basic-addon3">Quantity</span>
-                            <input type="text" class="form-control d-flex" id="quantity" aria-describedby="basic-addon3">
+                            <h6 class="m-auto">Quantity</h6>
                         </div>
                     </div>
-                    <div class="col-4 m-auto d-flex quantity-buttons">
-                        <button class="btn btn-primary" type="submit">+</button>
-                        <button class="btn btn-primary" type="submit">-</button>
-                        <button class="btn btn-outline-danger" type="submit">X</button>
-                    </div>
+                    <div class="col-3 m-auto d-flex quantity-buttons"></div>
                 </div>
             </li>
         </ul>
@@ -45,6 +43,47 @@
         </div>
     </div>
     <div class="loading-bar"></div>
+    <script>
+        let cartList = null
+        let quantityValue = 1
+
+        function removeItem(element){
+            cartList = document.getElementById("cart-list")
+            const itemId = element.parentNode.parentNode.parentNode.id
+            const item = document.getElementById(itemId)
+            cartList.removeChild(item)
+            cartList = null
+        }
+
+        function add(element){
+            cartList = document.getElementById("cart-list")
+            const itemId = element.parentNode.parentNode.parentNode.id
+            const item = document.getElementById(itemId)
+            const quantity = item.getElementsByClassName("form-control")
+            quantity[0].value++
+            cartList = null
+        }
+
+        function remove(element){
+            cartList = document.getElementById("cart-list")
+            const itemId = element.parentNode.parentNode.parentNode.id
+            const item = document.getElementById(itemId)
+            const quantity = item.getElementsByClassName("form-control")
+            quantityValue = quantity[0].value
+            console.log(quantityValue)
+            if(quantityValue > 1){
+                const newValue = quantityValue - 1
+                quantity[0].value = newValue
+                cartList = null
+                quantityValue = null
+            } else {
+                removeItem(element)
+                cartList = null
+                quantityValue = null
+            }            
+        }
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
