@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import Experience from '../Experience.js'
 import Environment from './Environment.js'
 import Products from './Products.js'
+import Shelves from './Shelves.js'
 import ShopModel from './ShopModel.js'
 
 export default class World{
@@ -15,6 +16,7 @@ export default class World{
         this.resources.on('ready', () => {
             //Setup 
             this.shopModel = new ShopModel()
+            this.shelves = new Shelves()
             this.products = new Products()
             this.environment = new Environment()
         })
