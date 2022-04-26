@@ -1,3 +1,10 @@
+:root {
+    --innactive-b-color:rgb(229, 80, 0);
+    --active-b-color: rgb(240, 108, 0);
+    --active-border-color: rgb(32, 33, 36);
+    --innactive-border-color: rgb(65, 68, 74);
+}
+
 * {
     margin:0;
     padding: 0;
@@ -98,8 +105,8 @@ canvas{
     height: 50px;
     border: 2px solid;
     border-radius: 5px;
-    border-color: beige;
-    background-color: grey;
+    border-color: var(--innactive-border-color);
+    background-color: var(--innactive-b-color);
     z-index: 12;
     cursor: pointer;
 }
@@ -111,11 +118,11 @@ canvas{
     transform: translate(-50%,-50%);
     width: 40px;
     height: 40px;
-    color: beige;
+    color: var(--innactive-border-color);
 }
 .cart:hover{
-    background-color: beige;
-    border-color: grey;
+    background-color: var(--active-b-color);
+    border-color: var(--active-border-color);
 }
 
 .cart-icon:hover{
@@ -133,8 +140,15 @@ canvas{
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
+    border: 1px solid;
+    border-color: var(--active-border-color);
     background-color: red;
 }
+
+#cart-list{
+    width: 100%;
+}
+
 .cart-number{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: auto;
@@ -153,7 +167,8 @@ canvas{
     height: 50px;
 }
 
-.cart-content{
+.cart-content.active{
+    display: flex;
     width: 520px;
     position: absolute;
     border-radius: 5px;
@@ -161,17 +176,13 @@ canvas{
     top: 20px;
     right: 20px;
     min-height: 50px;
-    overflow: hidden;
+    overflow-y: scroll;
+    background-color: antiquewhite;
+    max-height: 600px;
 }
 
-#cart-list{
-    position: relative;
-    right: -520px;
-    background-color: aliceblue;
-}
-
-#cart-list.active{
-    right:0;
+.cart-content{
+    display: none;
 }
 
 #price-col {
@@ -210,4 +221,48 @@ canvas{
 
 .webgl.interactive{
     cursor: pointer;
+}
+
+.controls {
+    display: none;
+}
+
+.controls.active {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 11;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.settings-icon{
+    position: relative;
+    width:30px;
+    height:30px;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.controls-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    bottom: 20px;
+    right: 20px;
+    z-index: 12;
+    border: 2px solid;
+    background-color: var(--innactive-b-color);
+    border-radius: 5px;
+    border-color: var(--innactive-border-color);
+    cursor: pointer;
+}
+
+.controls-icon:hover {
+    background-color: var(--active-b-color);
+    border-color: var(--active-border-color);
 }

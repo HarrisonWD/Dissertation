@@ -6,8 +6,6 @@ const experience = new Experience(document.querySelector('canvas.webgl'))
 const reticle = document.querySelector('.reticle')
 reticle.classList.add('hidden')
 
-
-
 // /** 
 //  * Fonts 
 //  */
@@ -109,7 +107,6 @@ window.addEventListener('keydown', (event) =>
     }
 })
 
-
 // /**
 //  * Debug
 //  */
@@ -123,7 +120,6 @@ window.addEventListener('keydown', (event) =>
 //          boxMaterial.color.set(parameters.color)
 //      })
 //  const materialFolder = gui.addFolder('material')
- 
  
 //  const lightFolder = gui.addFolder('light')
 //  const pointLightFolder = lightFolder.addFolder('Point Light')

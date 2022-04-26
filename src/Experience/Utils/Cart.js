@@ -39,7 +39,7 @@ export default class Cart extends EventEmitter{
                     </div>
                     <div class="col-2 m-auto d-flex">
                         <div class="input-group d-flex quantity-form d-flex">
-                            <input type="text" class="form-control d-flex" id="quantity" aria-describedby="basic-addon3" value="1">
+                            <input type="text" onchange="cartUpdate" class="form-control d-flex quantity" id="quantity" aria-describedby="basic-addon3" value="1">
                         </div>
                     </div>
                     <div class="col-3 m-auto d-flex quantity-buttons">
