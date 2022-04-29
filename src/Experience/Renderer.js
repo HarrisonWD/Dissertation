@@ -136,7 +136,6 @@ export default class Renderer extends EventEmitter {
                     } else {
                         const name = this.productFound
                         this.product = products[name]
-                        console.log(this.product)
                         product = this.product
                         this.instance.domElement.onmouseup = (() => {
                             if (product) {

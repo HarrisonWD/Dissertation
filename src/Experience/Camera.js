@@ -71,7 +71,6 @@ export default class Camera {
             reticle.classList.remove('hidden')
             this.pointerLockControls.lock()
             this.orbitControls.enablePan = false
-            console.log(name)
             if(name === 'SignDairy'){
                 this.pointerCamera.position.set(-2.5,1.5,7.5)
             }

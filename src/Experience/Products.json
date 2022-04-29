@@ -4,6 +4,10 @@
             "name": "Milk Carton",
             "price" : 0.99
         },
+        "Steak": {
+            "name": "Steak",
+            "price": 2.89
+        }, 
         "BoerworsSausage": {
             "name": "Boerwors Sausage",
             "price": 2.49
