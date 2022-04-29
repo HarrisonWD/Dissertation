@@ -58,6 +58,32 @@ export default class Camera {
         console.log('action')
     }
 
+    setCameraLocation(name){
+        const reticle = document.querySelector('.reticle')
+        if(this.pointerLockControls.isLocked == true)
+        {
+            reticle.classList.add('hidden')
+            this.pointerLockControls.unlock()
+            this.orbitControls.enablePan = true
+        }
+        else 
+        {
+            reticle.classList.remove('hidden')
+            this.pointerLockControls.lock()
+            this.orbitControls.enablePan = false
+            console.log(name)
+            if(name === 'SignDairy'){
+                this.pointerCamera.position.set(-2.5,1.5,7.5)
+            }
+            if(name === 'SignMeat'){
+                this.pointerCamera.position.set(2.5,1.5,7.5)
+            }
+            if(name === 'SignFrozen'){
+                this.pointerCamera.position.set(0.0035,1.5,1)
+            }
+        }
+    }
+
     resize()
     {
         this.orbitCamera.aspect = this.sizes.width / this.sizes.height

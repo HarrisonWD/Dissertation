@@ -26,6 +26,20 @@ export default[
                     '/models/signDairy.gltf',
                 ]
             },
+            {
+                name: 'SignFrozen',
+                type: 'gltf',
+                path:[
+                    '/models/signFrozen.gltf',
+                ]
+            },
+            {
+                name: 'SignMeat',
+                type: 'gltf',
+                path:[
+                    '/models/signMeat.gltf',
+                ]
+            }
         ],
         Products: [
             {

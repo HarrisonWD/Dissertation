@@ -34,7 +34,9 @@ export default class Shelves
 
     setModelParameters()
     {
-        this.shevles1.position.set(4,0.1,3)
-        this.shevles2.position.set(4,0.1,-2)
+        this.shevles1.position.set(0,0.1,3)
+        this.shevles1.rotateY(Math.PI * 0.5)
+        this.shevles2.position.set(0,0.1,-2)
+        this.shevles2.rotateY(Math.PI * 0.5)
     }
 }

@@ -14,7 +14,6 @@ export default class Products
         this.products = []
         this.productsName = []
         this.count = 0
-        console.log(this.items)
         // Setup
         this.itemsArray = Object.getOwnPropertyNames(this.items)
         this.sortItems()
@@ -67,7 +66,7 @@ export default class Products
         const productsFolder = this.debug.addFolder('Products').open(false)
         for(const productName of this.productsName)
         {
-            const item = this.experience.resources.items[productName].scene
+            const item = this.experience.resources.Products[productName].scene
             const productFolder = productsFolder.addFolder(productName).open(false)
             const positionFolder = productFolder.addFolder('Position').open(false)
             positionFolder.add(item.position, 'x').min(-20).max(20).step(0.5)

@@ -10,6 +10,8 @@ let currentIntersect = null
 
 let product = null
 
+let sign = null
+
 export default class Renderer extends EventEmitter {
     constructor() {
         super()
@@ -21,6 +23,7 @@ export default class Renderer extends EventEmitter {
         this.cart = new Cart()
         this.productFound = null
         this.productFromJSON = null
+        this.signs = this.experience.resources.Signs
         this.product = null
         this.count = 0
         this.intersected = null
@@ -51,7 +54,6 @@ export default class Renderer extends EventEmitter {
 
     update() 
     {
-
         // Count interactable objects
         this.productsCount = this.experience.objectsToInteract.length
         //Pointer Lock Controls Interaction and Raycast
@@ -109,29 +111,39 @@ export default class Renderer extends EventEmitter {
                     const canvas = document.querySelector('.webgl')
                     canvas.classList.add('interactive')
                     this.intersected = intersects[0].object.uuid
-                    for (let product of this.experience.objectsToInteract) {
-                        if (product.children[0].type == 'Group') {
-                            const childrenOfObject = product.children[0].children
+                    for (let item of this.experience.objectsToInteract) {
+                        if (item.children[0].type == 'Group') {
+                            const childrenOfObject = item.children[0].children
                             for (const mesh of childrenOfObject) {
                                 if (mesh.uuid === this.intersected) {
                                     this.productFound = this.experience.objectsToInteract[this.count].name
                                 }
                             }
-                            product.children[0].children[0]
+                            item.children[0].children[0]
                         }
-                        else if (product.children[0].uuid === this.intersected) {
+                        else if (item.children[0].uuid === this.intersected) {
                             this.productFound = this.experience.objectsToInteract[this.count].name
                         }
                         this.count++
                     }
-                    const name = this.productFound
-                    this.product = products[name]
-                    product = this.product
-                    this.instance.domElement.onmouseup = (() => {
-                        if (product) {
-                            this.cart.addProductToCart(product)
-                        }
-                    })
+                    sign = this.signs[this.productFound]
+                    if(sign){
+                        this.instance.domElement.onmouseup = (() => {
+                            if(sign){
+                                this.camera.setCameraLocation(sign.scene.name)
+                            }
+                        })
+                    } else {
+                        const name = this.productFound
+                        this.product = products[name]
+                        console.log(this.product)
+                        product = this.product
+                        this.instance.domElement.onmouseup = (() => {
+                            if (product) {
+                                this.cart.addProductToCart(product)
+                            }
+                        })
+                    }
                     this.count = 0
                     currentIntersect = intersects[0]
                 }
@@ -141,6 +153,7 @@ export default class Renderer extends EventEmitter {
                     const canvas = document.querySelector('.webgl')
                     canvas.classList.remove('interactive')
                     product = null
+                    sign = null
                 }
                 currentIntersect = null
             }

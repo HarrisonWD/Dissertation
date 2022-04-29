@@ -4,6 +4,7 @@ import Environment from './Environment.js'
 import Products from './Products.js'
 import Shelves from './Shelves.js'
 import ShopModel from './ShopModel.js'
+import Signs from './Signs.js'
 
 export default class World{
     constructor()
@@ -18,6 +19,7 @@ export default class World{
             this.shopModel = new ShopModel()
             this.shelves = new Shelves()
             this.products = new Products()
+            this.signs = new Signs()
             this.environment = new Environment()
         })
     }

@@ -103,7 +103,6 @@ window.addEventListener('keydown', (event) =>
             experience.camera.pointerLockControls.lock()
             experience.camera.orbitControls.enablePan = false
         }
-        
     }
 })
 
