@@ -11,8 +11,8 @@ export default class Shelves
         this.debug = this.experience.debug
 
         // Setup
-        this.resource = this.resources.items.Shelves
-
+        
+        this.resource = this.resources.Shelves.Shelves
         this.shevles1 = this.resource.scene.clone()
         this.shevles2 = this.resource.scene.clone()
 

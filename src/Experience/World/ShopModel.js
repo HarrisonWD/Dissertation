@@ -11,7 +11,7 @@ export default class ShopModel
         this.debug = this.experience.debug
 
         // Setup
-        this.resource = this.resources.items.ShopModel
+        this.resource = this.resources.Shop.ShopModel
 
         // Debug 
         if(this.debug.active)
@@ -26,7 +26,6 @@ export default class ShopModel
     {
         this.model = this.resource.scene
         this.scene.add(this.model)
-
         this.model.traverse((child) => {
             if(child instanceof THREE.Mesh){
                 child.castShadow = true

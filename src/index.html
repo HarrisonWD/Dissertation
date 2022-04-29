@@ -37,7 +37,7 @@
     <div class="controls-icon" onclick="toggleControls()">
         <ion-icon name="settings-outline" onclick="" class="settings-icon"></ion-icon>
     </div>
-    <div class="controls">
+    <div class="controls active">
         <div class="row">
             <div class="col">
                 <table class="table text-center">
@@ -70,12 +70,13 @@
                 <p>Press 'F' to enter first person</p>
                 <p>Click and drag the mouse to pan the camera</p>
                 <p>Click on objects to interact with them</p>
-                <ion-icon name="volume-high-outline"></ion-icon>
-                <ion-icon name="volume-mute-outline"></ion-icon>
             </div>
 
         </div>
 
+    </div>
+    <div id="Fini" class="pointer-event" onclick="finish()">
+        <h2>Finish</h2>
     </div>
     <canvas class="webgl"></canvas>
     <div class="center">
@@ -86,6 +87,7 @@
         </div>
     </div>
     <div class="loading-bar"></div>
+
     <script>
         let cartList = null
         let quantityValue = 1
@@ -161,6 +163,13 @@
             controls = document.querySelector('.controls')
             controls.classList.toggle('active')
             controls = null
+        }
+
+        function finish(){
+            window.confirm('Thank you for taking time to interact with this website, would you consider completing a questionnaire')
+            {
+                window.location.href='https://forms.gle/Tmh2cRBEP9WTZVSu7'
+            }
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

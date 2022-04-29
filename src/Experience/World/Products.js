@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 import Experience from '../Experience.js'
 
+let test = null
 export default class Products
 {   
 
@@ -8,12 +9,12 @@ export default class Products
     {
         this.experience = new Experience()
         this.scene = this.experience.scene
-        this.items = this.experience.resources.items
+        this.items = this.experience.resources.Products
         this.debug = this.experience.ui
         this.products = []
         this.productsName = []
         this.count = 0
-
+        console.log(this.items)
         // Setup
         this.itemsArray = Object.getOwnPropertyNames(this.items)
         this.sortItems()
@@ -32,14 +33,8 @@ export default class Products
     sortItems(){
         for(const product of this.itemsArray)
         {
-            if(product != 'ShopModel')
-            {
-                if(product != 'Shelves')
-                {
-                    this.productsName.push(product)                
-                    this.products.push(this.experience.resources.items[product])
-                }
-            }
+            this.productsName.push(product)                
+            this.products.push(this.experience.resources.Products[product])
         }
     }
 
@@ -64,7 +59,7 @@ export default class Products
 
     setProductParameters()
     {
-        this.experience.resources.items.MilkCarton.scene.position.set(0.5,0,0.5)
+        this.experience.resources.Products.MilkCarton.scene.position.set(0.5,0,0.5)
     }
 
     debugSetup()

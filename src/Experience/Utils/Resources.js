@@ -5,8 +5,11 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
 import EventEmitter from './EventEmitter.js'
 import Experience from '../Experience.js'
 
-
-
+let sourceType = null
+let sourcesLength = null
+let sourcesPrimed = []
+let sourcesNames = []
+let witness = 0
 export default class Resources extends EventEmitter 
 {
     constructor(sources)
@@ -15,16 +18,27 @@ export default class Resources extends EventEmitter
 
         // Options
         this.sources = sources
-    
-        // Setup 
-        this.items = {}
-        this.products = {}
-        this.toLoad = this.sources.length
 
+        // Setup 
+        this.Products = {}
+        this.Shop = {}
+        this.Shelves = {}
+        this.Signs= {}
+        this.primeSource()
+        this.toLoad = sourcesLength
         this.loaded = 0
         this.experience = new Experience
         this.setLoaders()
         this.startLoading()
+    }
+
+    primeSource(){
+        sourceType = this.sources[0]
+        sourcesNames = Object.getOwnPropertyNames(sourceType)
+        for(let name of sourcesNames){
+            sourcesLength += sourceType[name].length
+            sourcesPrimed[name] = sourceType[name]
+        } 
     }
 
     setLoaders()
@@ -60,33 +74,35 @@ export default class Resources extends EventEmitter
 
     startLoading()
     {
-        for(const source of this.sources){
-            if(source.type === 'gltf'){
-                this.loaders.gltfDracoLoader.load(
-                    source.path,
-                    (file) => {
-                        this.sourceLoaded(source, file)
+        for(let name of sourcesNames){
+            for(const source of sourceType[name]){
+                    if(source.type === 'gltf'){
+                    this.loaders.gltfDracoLoader.load(
+                        source.path,
+                        (file) => {
+                            this.sourceLoaded(name, source, file)
+                        }
+                    )
                     }
-                )
-            }
-            else if(source.type === 'glb'){
-                this.loaders.gltfDracoLoader.load(
-                    source.path,
-                    (file) => {
-                        this.sourceLoaded(source, file)
-                    }
-                )
+                    else if(source.type === 'glb'){
+                        this.loaders.gltfDracoLoader.load(
+                            source.path,
+                            (file) => {
+                                this.sourceLoaded(name, source, file)
+                        }
+                    )
+                }
             }
         }
     }
 
-    sourceLoaded(source, file)
+    sourceLoaded(name, source, file)
     {
-        this.items[source.name] = file
+        this[name][source.name] = file
         this.loaded++
-
         if(this.loaded === this.toLoad){
             this.trigger('ready')
         }
+        witness = null
     }
 }

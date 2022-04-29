@@ -9,6 +9,7 @@ let products = productsJSON
 let currentIntersect = null
 
 let product = null
+
 export default class Renderer extends EventEmitter {
     constructor() {
         super()
@@ -23,8 +24,8 @@ export default class Renderer extends EventEmitter {
         this.product = null
         this.count = 0
         this.intersected = null
-        
         this.setInstance()
+
     }
 
     setInstance() 
@@ -46,8 +47,11 @@ export default class Renderer extends EventEmitter {
         this.instance.setPixelRatio(this.sizes.pixelRatio)
     }
 
+   
+
     update() 
     {
+
         // Count interactable objects
         this.productsCount = this.experience.objectsToInteract.length
         //Pointer Lock Controls Interaction and Raycast
@@ -141,6 +145,9 @@ export default class Renderer extends EventEmitter {
                 currentIntersect = null
             }
 
+     
+        
+           
 
             this.instance.render(this.scene, this.camera.orbitCamera)
         }
