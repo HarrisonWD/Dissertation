@@ -105,36 +105,3 @@ window.addEventListener('keydown', (event) =>
         }
     }
 })
-
-// /**
-//  * Debug
-//  */
-//  const gui = new lil.GUI({width: 400})
-//  //gui.hide()
- 
-//  //Debug Objects
-//  gui
-//      .addColor(parameters, 'color')
-//      .onChange(() => {
-//          boxMaterial.color.set(parameters.color)
-//      })
-//  const materialFolder = gui.addFolder('material')
- 
-//  const lightFolder = gui.addFolder('light')
-//  const pointLightFolder = lightFolder.addFolder('Point Light')
-//  pointLightFolder.add(pointLight.position, 'x').min(-0.5).max(3).step(0.01)
-//  pointLightFolder.add(pointLight.position, 'y').min(-0.5).max(3).step(0.01)
-//  pointLightFolder.add(pointLight.position, 'z').min(-0.5).max(3).step(0.01)
-//  pointLightFolder.add(pointLight, 'intensity').min(-0.5).max(2).step(0.01)
-
-//  const ambientLightFolder = lightFolder.addFolder('Ambient Light')
-//  ambientLightFolder.add(ambientLight.position, 'x').min(-0.5).max(3).step(0.01)
-//  ambientLightFolder.add(ambientLight.position, 'y').min(-0.5).max(3).step(0.01)
-//  ambientLightFolder.add(ambientLight.position, 'z').min(-0.5).max(3).step(0.01)
-//  ambientLightFolder.add(ambientLight, 'intensity').min(-0.5).max(2).step(0.01)
-
-//  const directionalLightFolder = lightFolder.addFolder('Directional Light')
-//  directionalLightFolder.add(directionalLight.position, 'x').min(-0.5).max(3).step(0.01)
-//  directionalLightFolder.add(directionalLight.position, 'y').min(-0.5).max(3).step(0.01)
-//  directionalLightFolder.add(directionalLight.position, 'z').min(-0.5).max(3).step(0.01)
-//  directionalLightFolder.add(directionalLight, 'intensity').min(-0.5).max(2).step(0.01)
