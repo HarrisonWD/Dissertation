@@ -77,20 +77,42 @@ window.addEventListener('keydown', (event) =>
 //Pointer Camera Controls
 window.addEventListener('keydown', (event) =>
 {
-    if(event.key == 'w' || 'W')
+    if(event.key == 'w' )
     experience.camera.pointerLockControls.moveForward(0.25) 
-    if(event.key == 'a' || 'A')
+    if(event.key == 'a' )
     experience.camera.pointerLockControls.moveRight(-0.25) 
-    if(event.key == 's' || 'S')
+    if(event.key == 's' )
     experience.camera.pointerLockControls.moveForward(-0.25) 
-    if(event.key == 'd' || 'D')
+    if(event.key == 'd' )
+    experience.camera.pointerLockControls.moveRight(0.25)
+    if(event.key == 'W' )
+    experience.camera.pointerLockControls.moveForward(0.25) 
+    if(event.key == 'A' )
+    experience.camera.pointerLockControls.moveRight(-0.25) 
+    if(event.key == 'S' )
+    experience.camera.pointerLockControls.moveForward(-0.25) 
+    if(event.key == 'D' )
     experience.camera.pointerLockControls.moveRight(0.25)
 })
 
 //Pointer Camera Enabled
 window.addEventListener('keydown', (event) => 
 {
-    if(event.key == 'f' || 'F'){
+    if(event.key == 'f'){
+        if(experience.camera.pointerLockControls.isLocked == true)
+        {
+            reticle.classList.add('hidden')
+            experience.camera.pointerLockControls.unlock()
+            experience.camera.orbitControls.enablePan = true
+        }
+        else 
+        {
+            reticle.classList.remove('hidden')
+            experience.camera.pointerLockControls.lock()
+            experience.camera.orbitControls.enablePan = false
+        }
+    }
+    if(event.key == 'F'){
         if(experience.camera.pointerLockControls.isLocked == true)
         {
             reticle.classList.add('hidden')
