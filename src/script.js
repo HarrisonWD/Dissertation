@@ -77,20 +77,20 @@ window.addEventListener('keydown', (event) =>
 //Pointer Camera Controls
 window.addEventListener('keydown', (event) =>
 {
-    if(event.key == 'w')
+    if(event.key == 'w' || 'W')
     experience.camera.pointerLockControls.moveForward(0.25) 
-    if(event.key == 'a')
+    if(event.key == 'a' || 'A')
     experience.camera.pointerLockControls.moveRight(-0.25) 
-    if(event.key == 's')
+    if(event.key == 's' || 'S')
     experience.camera.pointerLockControls.moveForward(-0.25) 
-    if(event.key == 'd')
+    if(event.key == 'd' || 'D')
     experience.camera.pointerLockControls.moveRight(0.25)
 })
 
 //Pointer Camera Enabled
 window.addEventListener('keydown', (event) => 
 {
-    if(event.key == 'f'){
+    if(event.key == 'f' || 'F'){
         if(experience.camera.pointerLockControls.isLocked == true)
         {
             reticle.classList.add('hidden')
