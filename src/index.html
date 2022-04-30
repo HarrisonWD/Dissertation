@@ -150,13 +150,16 @@
         function cartUpdate(){
             let quantity = document.getElementsByClassName('quantity')
             let quantityAmount = 0
+            let finalAmount = 0
+            
             for(number of quantity)
             {
-                quantityAmount += number.value
+                quantityAmount += parseInt(number.value)
             }
             const cartIconNumber = document.getElementById('cart-number')
             cartIconNumber.innerHTML = Number(quantityAmount)
             quantity = null
+            finalAmount = 0
         }
 
         function toggleControls(){

@@ -168,6 +168,81 @@ export default class Products
             this.scene.add(this.ChickenThighs[i])
         }
 
+        // Frozen
+        // First Row 
+        x = -4.5
+        y = 0.58
+        z = -1.1
+        this.items.FrozenLasangeMeaty.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenLasangeMeaty.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenLasangeMeaty.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenLasangeMeaty.scene.position.set(x+=0.5, y, z)
+        this.items.FrozenLasange.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenLasange.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenLasange.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenLasange.scene.position.set(x+=2.5, y, z)
+        this.items.FrozenLasangeFibre.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenLasangeFibre.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenLasangeFibre.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenLasangeFibre.scene.position.set(x+=0.5, y, z)
+        this.items.FrozenPizza.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenPizza.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenPizza.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenPizza.scene.position.set(0.1, 1.22, -1.1)
+        this.items.FrozenMozzarellaSticks.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMozzarellaSticks.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMozzarellaSticks.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMozzarellaSticks.scene.position.set(1.7, 1.22, -1.1)
+        this.items.FrozenMozzarellaSticksFamilyPack.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMozzarellaSticksFamilyPack.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMozzarellaSticksFamilyPack.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMozzarellaSticksFamilyPack.scene.position.set(3.3, 1.22, -1.1)
+        this.items.FrozenMozzarellaSticksBreaded.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMozzarellaSticksBreaded.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMozzarellaSticksBreaded.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMozzarellaSticksBreaded.scene.position.set(2.3, 1.22, -1.1)
+        this.items.BoereworsSausageCountry.scene.position.set(0,-8,0)
+
+        // Second Row
+        this.items.FrozenMixedVegMcCain.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMixedVegMcCain.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMixedVegMcCain.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMixedVegMcCain.scene.position.set(-4, 1.05, -1.1)
+
+        this.items.FrozenVegBirdsEye.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenVegBirdsEye.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenVegBirdsEye.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenVegBirdsEye.scene.position.set(1.2, 1.7, -1.1)
+
+        this.items.FrozenMixedVegSteamBag.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMixedVegSteamBag.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMixedVegSteamBag.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMixedVegSteamBag.scene.position.set(-3, 1.05, -1.1)
+
+        this.items.FrozenMixedVegSteam.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMixedVegSteam.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMixedVegSteam.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMixedVegSteam.scene.position.set(-2.5, 1.05, -1.1)
+
+        this.items.FrozenMixedVegExtraValue.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMixedVegExtraValue.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMixedVegExtraValue.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMixedVegExtraValue.scene.position.set(0.75, 1.7, -1.1)
+
+        this.items.FrozenMixedVegValue.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenMixedVegValue.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenMixedVegValue.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenMixedVegValue.scene.position.set(2.3, 1.7, -1.1)
+
+        this.items.FrozenVegHarvestime.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenVegHarvestime.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenVegHarvestime.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenVegHarvestime.scene.position.set(-0.8, 1.7, -1.1)
+
+        this.items.FrozenPorkAndChickenDumplings.scene.rotateX(Math.PI * 0.5)
+        this.items.FrozenPorkAndChickenDumplings.scene.rotateY(Math.PI * 1.5)
+        this.items.FrozenPorkAndChickenDumplings.scene.scale.set(1.3, 1.3, 1.3)        
+        this.items.FrozenPorkAndChickenDumplings.scene.position.set(-1, 1.05, -1.1)
 
         // this.items.ChickenThighs.scene.rotateX(Math.PI * 0.4)
         // this.items.ChickenThighs.scene.scale.set(1.3, 1.3, 1.3)

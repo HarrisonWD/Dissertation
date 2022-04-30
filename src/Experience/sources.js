@@ -211,7 +211,7 @@ export default[
                 ]
             },
             {
-                name: 'FrozenMozzarellaSticks3',
+                name: 'FrozenMozzarellaSticks',
                 type: 'gltf',
                 path:[
                     '/models/frozenMozzarellaSticks3.gltf'

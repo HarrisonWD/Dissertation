@@ -21,7 +21,148 @@
         {
             "name": "Cheerios Original",
             "price" : 1.49
-        }
+        },
+        "AllBranCereal" :
+        {
+            "name": "All-Bran Cereal",
+            "price" : 1.49
+        },
+        "AllBranCerealLarge" :
+        {
+            "name": "All-Bran Cereal Family Pack",
+            "price" : 1.49
+        },
+        "OteesChocolate" :
+        {
+            "name": "Otees Chocolate",
+            "price" : 1.49
+        },
+        "OteesBubblegum" :
+        {
+            "name": "Otees Bubblegum",
+            "price" : 1.49
+        },
+        "CocoPopsChoco" :
+        {
+            "name": "Coco-Pops Chococolate",
+            "price" : 1.49
+        },
+        "PorridgeOriginal" :
+        {
+            "name": "Porridge Original",
+            "price" : 1.49
+        },
+        "PorridgeBanana" :
+        {
+            "name": "Porridge Banana",
+            "price" : 1.49
+        },
+        "PorridgeChocolate" :
+        {
+            "name": "Porridge Chocolate",
+            "price" : 1.49
+        },
+        "PorridgeStrawberry" :
+        {
+            "name": "Porridge Strawberry",
+            "price" : 1.49
+        },
+        "CocoPopsCrunchy" :
+        {
+            "name": "Coco-Pops Crunchy",
+            "price" : 1.49
+        },
+        "CheeriosCerealHoney" :
+        {
+            "name": "Cheerios Honey",
+            "price" : 1.49
+        },
+        "BoereworsSausage" :
+        {
+            "name": "Boerewors Sausage",
+            "price" : 1.49
+        },
+        "ChickenThighs" :
+        {
+            "name": "Chicken Thighs",
+            "price" : 1.49
+        },
+        "FrozenLasangeMeaty" :
+        {
+            "name": "Frozen Meaty Lasange",
+            "price" : 1.49
+        },
+        "FrozenLasange" :
+        {
+            "name": "Frozen Lasange",
+            "price" : 1.49
+        },
+        "FrozenLasangeFibre" :
+        {
+            "name": "Frozen Lasange Fibre",
+            "price" : 1.49
+        },
+        "FrozenPizza" :
+        {
+            "name": "Frozen Pepperoni Pizza",
+            "price" : 1.49
+        },
+        "FrozenMozzarellaSticks" :
+        {
+            "name": "Frozen Mozzarella Sticks",
+            "price" : 1.49
+        },
+        "FrozenMozzarellaSticksFamilyPack" :
+        {
+            "name": "Frozen Mozzarella Sticks Family-Pack",
+            "price" : 1.49
+        },
+        "FrozenMozzarellaSticksBreaded" :
+        {
+            "name": "Frozen Breaded Mozzarella Sticks",
+            "price" : 1.49
+        },
+        "FrozenMixedVegMcCain" :
+        {
+            "name": "McCain Frozen Mixed-Veg",
+            "price" : 1.49
+        },
+        "FrozenVegBirdsEye" :
+        {
+            "name": "BirdsEye Frozen Veg",
+            "price" : 1.49
+        },
+        "FrozenMixedVegSteamBag" :
+        {
+            "name": "Frozen Mixed Veg Steam Bags",
+            "price" : 1.49
+        },
+        "FrozenMixedVegSteam" :
+        {
+            "name": "Frozen Mixed Veg Steam",
+            "price" : 1.49
+        },
+        "FrozenMixedVegExtraValue" :
+        {
+            "name": "Extra Value Frozen Mixed ",
+            "price" : 1.49
+        },
+        "FrozenMixedVegValue" :
+        {
+            "name": "Value Frozen Mixed Veg ",
+            "price" : 1.49
+        },
+        "FrozenVegHarvestime" :
+        {
+            "name": "Harvestime Frozen Mixed Veg",
+            "price" : 1.49
+        },
+        "FrozenPorkAndChickenDumplings" :
+        {
+            "name": "Frozen Pork & Chicken Dumplings",
+            "price" : 1.49
+        }       
+        
     }
 
     
